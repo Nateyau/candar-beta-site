@@ -228,6 +228,35 @@
       line-height: 1.55;
     }
 
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .guide-card-map {
+      grid-column: 1 / -1;
+      border-color: rgba(239, 48, 71, 0.30);
+    }
+
+    .guide-card p {
+      margin: 0;
+      color: #9aa1aa;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .try-it {
+      margin-top: 14px !important;
+      color: #d8dbe0 !important;
+    }
+
+    .try-it strong {
+      display: inline;
+      color: #ff8392;
+      font-size: inherit;
+    }
+
     .feedback {
       margin: 34px 0 64px;
       padding: 28px;
@@ -317,6 +346,14 @@
 
       .grid {
         grid-template-columns: 1fr;
+      }
+
+      .guide-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .guide-card-map {
+        grid-column: auto;
       }
 
       .two {
@@ -422,6 +459,101 @@
             overall speed and feel of Candar.
           </span>
         </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">
+        A few things to know before you test
+      </h2>
+
+      <p class="section-copy">
+        Candar is built around user choice and control.
+        These are a few features worth understanding
+        before you start testing.
+      </p>
+
+      <div class="guide-grid">
+
+        <div class="card guide-card guide-card-map">
+          <strong>Map &amp; Location Safety</strong>
+          <p>
+            You control whether you appear on the Candar
+            Map. Map presence stops when Candar is
+            backgrounded, the phone is locked, you log
+            out, disable Show on Map, use Ghost Mode or
+            hide your profile, or leave Candar inactive
+            for about three minutes. Candar also uses a
+            server-side safety expiry so stale locations
+            do not remain visible. Your green online
+            indicator is separate from Map sharing.
+          </p>
+          <p class="try-it">
+            <strong>Try it:</strong>
+            Appear on the Map, leave Candar untouched for
+            a few minutes and watch your Map presence
+            disappear. Use Candar again and see it return.
+          </p>
+        </div>
+
+        <div class="card guide-card">
+          <strong>Ghost Mode &amp; Privacy</strong>
+          <p>
+            Candar includes controls for profile
+            visibility and Map visibility so you decide
+            when and how other members can discover you.
+          </p>
+          <p class="try-it">
+            <strong>Try it:</strong>
+            Switch privacy settings on and off and check
+            that your visibility changes as expected.
+          </p>
+        </div>
+
+        <div class="card guide-card">
+          <strong>Likes &amp; Favourites</strong>
+          <p>
+            Likes show another member that you are
+            interested. Favourites are a separate way to
+            keep track of profiles you want to find again.
+          </p>
+          <p class="try-it">
+            <strong>Try it:</strong>
+            Like and Favourite profiles from different
+            screens and check that the state stays
+            consistent.
+          </p>
+        </div>
+
+        <div class="card guide-card">
+          <strong>Messages &amp; Shared Photos</strong>
+          <p>
+            Candar messaging includes reactions, photo
+            sharing and shared albums as part of the
+            conversation experience.
+          </p>
+          <p class="try-it">
+            <strong>Try it:</strong>
+            Send messages, react to them and open shared
+            photos or albums from both sides of a chat.
+          </p>
+        </div>
+
+        <div class="card guide-card">
+          <strong>View on Map</strong>
+          <p>
+            When a member is actively sharing their Map
+            presence, their profile can offer View on Map.
+            When that Map presence ends, the option should
+            no longer be available.
+          </p>
+          <p class="try-it">
+            <strong>Try it:</strong>
+            Watch a member become active and inactive on
+            the Map and check that View on Map follows.
+          </p>
+        </div>
+
       </div>
     </section>
 
