@@ -257,6 +257,41 @@
       font-size: inherit;
     }
 
+    .visual-tour {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      align-items: start;
+    }
+
+    .visual-item {
+      margin: 0;
+    }
+
+    .visual-shot {
+      width: 100%;
+      display: block;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      box-shadow:
+        0 22px 55px rgba(0, 0, 0, 0.42);
+      background: #090c11;
+    }
+
+    .visual-caption {
+      margin-top: 12px;
+      color: #aeb4bc;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .visual-caption strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #f0f1f3;
+      font-size: 15px;
+    }
+
     .feedback {
       margin: 34px 0 64px;
       padding: 28px;
@@ -349,6 +384,10 @@
       }
 
       .guide-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .visual-tour {
         grid-template-columns: 1fr;
       }
 
@@ -626,6 +665,65 @@
             profiles you want to find again.
           </p>
         </div>
+
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">
+        See Candar in action
+      </h2>
+
+      <p class="section-copy">
+        A few visual examples to help you recognise the
+        features you'll be testing inside Candar.
+      </p>
+
+      <div class="visual-tour">
+
+        <figure class="visual-item">
+          <img
+            class="visual-shot"
+            src="assets/candar-global-map.jpg"
+            alt="Candar global Map showing member avatars"
+            loading="lazy"
+          >
+          <figcaption class="visual-caption">
+            <strong>Global Map</strong>
+            Explore member avatars on the Map while
+            keeping control of visibility, Ghost Mode
+            and Fuzz privacy settings.
+          </figcaption>
+        </figure>
+
+        <figure class="visual-item">
+          <img
+            class="visual-shot"
+            src="assets/candar-people-grid.jpg"
+            alt="Candar People Grid with search filters"
+            loading="lazy"
+          >
+          <figcaption class="visual-caption">
+            <strong>People Grid</strong>
+            Browse profiles and use the Main Grid's
+            filters to narrow discovery by the criteria
+            that matter to you.
+          </figcaption>
+        </figure>
+
+        <figure class="visual-item">
+          <img
+            class="visual-shot"
+            src="assets/candar-location-drop.jpg"
+            alt="Candar chat showing a Location Drop"
+            loading="lazy"
+          >
+          <figcaption class="visual-caption">
+            <strong>Location Drop in Chat</strong>
+            Share a location inside a conversation and
+            open it directly in Candar Maps.
+          </figcaption>
+        </figure>
 
       </div>
     </section>
