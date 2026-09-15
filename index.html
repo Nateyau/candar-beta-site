@@ -228,6 +228,58 @@
       line-height: 1.55;
     }
 
+    .designed-section {
+      padding-top: 38px;
+      padding-bottom: 34px;
+    }
+
+    .feature-kicker {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: #ff7182;
+      font-size: 12px;
+      font-weight: 760;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .feature-grid {
+      margin-top: 8px;
+    }
+
+    .feature-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 22px;
+      right: 22px;
+      height: 2px;
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(239, 48, 71, 0.75),
+          transparent
+        );
+    }
+
+    .feature-card strong {
+      margin-top: 3px;
+    }
+
+    .feature-note {
+      max-width: 720px;
+      margin: 22px 0 0;
+      color: #777f89;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
     .guide-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -667,6 +719,100 @@
         </div>
 
       </div>
+    </section>
+
+    <section class="designed-section">
+      <span class="feature-kicker">
+        Designed by Candar
+      </span>
+
+      <h2 class="section-title">
+        Designed differently by Candar
+      </h2>
+
+      <p class="section-copy">
+        Candar is not just another social app with a different
+        logo. We are building features around privacy, choice,
+        courtesy and keeping people in control of how they
+        connect.
+      </p>
+
+      <div class="grid feature-grid">
+        <div class="card feature-card">
+          <strong>Thank You</strong>
+          <span>
+            A kinder way to end a private conversation.
+            If a chat simply is not right for you, Candar
+            can send a courteous Thank You message.
+            The conversation stays available until the
+            other person has opened and read it, then the
+            chat closes for both people. Block and Report
+            remain there for abuse, harassment or safety
+            concerns.
+          </span>
+        </div>
+
+        <div class="card feature-card">
+          <strong>Candar Discovery</strong>
+          <span>
+            Our People experience brings profiles,
+            Filters and Map discovery together. Explore
+            somebody, move between their profile and the
+            Map, then return to the part of Discovery
+            where you were instead of being thrown back
+            to the beginning.
+          </span>
+        </div>
+
+        <div class="card feature-card">
+          <strong>Fuzz</strong>
+          <span>
+            Location-based connection does not need to
+            mean broadcasting a pinpoint. Fuzz lets a
+            member use a privacy-adjusted Map position,
+            creating a deliberate location buffer while
+            still supporting nearby discovery.
+          </span>
+        </div>
+
+        <div class="card feature-card">
+          <strong>Privacy-first Map</strong>
+          <span>
+            New Candar profiles do not appear on the Map
+            by default. Map visibility begins as a
+            deliberate choice, not an assumption made
+            for you.
+          </span>
+        </div>
+
+        <div class="card feature-card">
+          <strong>Private Albums</strong>
+          <span>
+            Keep personal photos private until you decide
+            to share them. Private albums can be shared
+            through Chat with the person you choose,
+            rather than being exposed as ordinary public
+            profile photos.
+          </span>
+        </div>
+
+        <div class="card feature-card">
+          <strong>Hidden Map &amp; Ghost Mode</strong>
+          <span>
+            Candar gives privacy more than one level.
+            Premium members can use the Map while hidden,
+            while Ghost Mode provides broader control
+            over being discoverable through People,
+            searches and the Map.
+          </span>
+        </div>
+      </div>
+
+      <p class="feature-note">
+        Candar product names, original interface copy,
+        website text and original visual presentation
+        © 2026 Candar.
+      </p>
     </section>
 
     <section>
