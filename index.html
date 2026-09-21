@@ -133,21 +133,14 @@
     <div class="beta-gate-top">
       <div>
         <div class="section-kicker">Private Android Beta</div>
-        <h3 id="beta-gate-title">Enter your tester code.</h3>
+        <h3 id="beta-gate-title">Join the Candar beta.</h3>
       </div>
       <button class="beta-gate-close" type="button" aria-label="Close beta access">×</button>
     </div>
-    <p>This beta group is limited to 20 places. If your code is accepted, your download link appears immediately.</p>
-    <form class="beta-gate-form" id="beta-gate-form">
-      <label>Beta tester code
-        <input id="beta-code" type="text" inputmode="text" autocomplete="off" spellcheck="false" placeholder="CANDAR-XXXX-XXXX" required>
-      </label>
-      <button class="button button-primary" id="beta-gate-submit" type="submit">Access Beta</button>
+    <p>This beta group is limited to the first 20 testers. Click below to claim a place and download Candar immediately.</p>
+    <div class="beta-gate-form">
+      <button class="button button-primary" id="beta-gate-submit" type="button">Claim Beta Place &amp; Download</button>
       <p class="beta-gate-status" id="beta-gate-status" aria-live="polite"></p>
-    </form>
-    <div class="beta-gate-success" id="beta-gate-success">
-      <a class="button button-primary" id="beta-gate-download" href="#" rel="nofollow">Download Candar Beta</a>
-      <p class="beta-gate-small">Install Candar, then complete the normal in-app registration.</p>
     </div>
   </div>
 </div>
@@ -161,12 +154,8 @@ const observer=new IntersectionObserver(entries=>{for(const entry of entries){if
 (() => {
   const endpoint = 'https://iccytpnhtqnkwkqcumvk.supabase.co/functions/v1/beta-download-access';
   const overlay = document.getElementById('beta-access');
-  const form = document.getElementById('beta-gate-form');
-  const codeInput = document.getElementById('beta-code');
   const status = document.getElementById('beta-gate-status');
   const submit = document.getElementById('beta-gate-submit');
-  const success = document.getElementById('beta-gate-success');
-  const download = document.getElementById('beta-gate-download');
 
   function claimId() {
     let id = localStorage.getItem('candarBetaClaimId');
@@ -181,7 +170,7 @@ const observer=new IntersectionObserver(entries=>{for(const entry of entries){if
     if (event) event.preventDefault();
     overlay.classList.add('open');
     overlay.setAttribute('aria-hidden', 'false');
-    setTimeout(() => codeInput.focus(), 30);
+    setTimeout(() => submit.focus(), 30);
   }
 
   function closeGate() {
@@ -201,40 +190,31 @@ const observer=new IntersectionObserver(entries=>{for(const entry of entries){if
     if (event.key === 'Escape' && overlay.classList.contains('open')) closeGate();
   });
 
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const code = codeInput.value.trim().toUpperCase();
-    if (!code) return;
-
+  submit.addEventListener('click', async () => {
     submit.disabled = true;
     status.className = 'beta-gate-status';
-    status.textContent = 'Checking your beta access…';
-    success.classList.remove('show');
+    status.textContent = 'Claiming your beta place…';
 
     try {
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ code, claimId: claimId() }),
+        body: JSON.stringify({ claimId: claimId() }),
       });
 
       const result = await response.json().catch(() => ({}));
 
       if (!response.ok || !result.ok) {
         status.classList.add('error');
-        if (result.status === 'full' || result.status === 'closed') {
-          status.textContent = 'This beta group is now full.';
-        } else {
-          status.textContent = 'That tester code was not accepted.';
-        }
+        status.textContent = 'This beta group is now full.';
         return;
       }
 
-      download.href = result.downloadUrl;
       status.textContent = result.remaining === 0
-        ? 'Access granted. This beta group is now full.'
-        : 'Access granted.';
-      success.classList.add('show');
+        ? 'Place claimed. You are the final tester in this beta group.'
+        : 'Place claimed. Your download is starting…';
+
+      window.location.href = result.downloadUrl;
     } catch {
       status.classList.add('error');
       status.textContent = 'Beta access could not be checked. Please try again.';
